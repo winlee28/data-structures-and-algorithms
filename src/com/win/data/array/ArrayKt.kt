@@ -90,12 +90,12 @@ class ArrayKt<E> constructor(capacity: Int) {
         return -1
     }
 
-    fun removeFirst() {
-        remove(0)
+    fun removeFirst(): E {
+        return remove(0)
     }
 
-    fun removeLast() {
-        remove(size - 1)
+    fun removeLast(): E {
+        return remove(size - 1)
     }
 
     fun remove(index: Int): E {
@@ -104,7 +104,6 @@ class ArrayKt<E> constructor(capacity: Int) {
             throw java.lang.IllegalArgumentException("remove fail. index must  >= 0 ||  < size")
         }
 
-        val removeElement = data[index]
         for (i in index + 1 until size) {
             data[i - 1] = data[i]
         }
@@ -114,7 +113,7 @@ class ArrayKt<E> constructor(capacity: Int) {
             reSize(getCapacity() / 2)
         }
 
-        return removeElement
+        return data[index]
     }
 
 

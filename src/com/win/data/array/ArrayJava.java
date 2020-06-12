@@ -100,15 +100,15 @@ public class ArrayJava<E> {
 
     }
 
-    public void removeFirst() {
-        remove(0);
+    public E removeFirst() {
+        return remove(0);
     }
 
-    public void removeLast() {
-        remove(size - 1);
+    public E removeLast() {
+        return remove(size - 1);
     }
 
-    public void remove(int index) {
+    public E remove(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("remove fail.index  must >= 0 && index < size ");
         }
@@ -121,6 +121,8 @@ public class ArrayJava<E> {
         if (getCapacity() / size == 4) {
             reSize(getCapacity() / 2);
         }
+
+        return get(index);
     }
 
     public void printAll() {
