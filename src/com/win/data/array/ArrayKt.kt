@@ -13,6 +13,10 @@ class ArrayKt<E> constructor(capacity: Int) {
         return data.size
     }
 
+    fun isEmpty(): Boolean {
+        return size == 0
+    }
+
     fun addFirst(e: E) {
         add(0, e)
     }
@@ -48,10 +52,20 @@ class ArrayKt<E> constructor(capacity: Int) {
     }
 
     fun get(index: Int): E {
+
+        if (index < 0 || index >= size) {
+            throw java.lang.IllegalArgumentException("get fail. index must  >= 0 ||  < size")
+        }
+
         return data[index]
     }
 
     fun set(index: Int, e: E) {
+
+        if (index < 0 || index >= size) {
+            throw java.lang.IllegalArgumentException("set fail. index must  >= 0 ||  < size")
+        }
+
         data[index] = e
     }
 
@@ -85,6 +99,10 @@ class ArrayKt<E> constructor(capacity: Int) {
     }
 
     fun remove(index: Int): E {
+
+        if (index < 0 || index >= size) {
+            throw java.lang.IllegalArgumentException("remove fail. index must  >= 0 ||  < size")
+        }
 
         val removeElement = data[index]
         for (i in index + 1 until size) {
