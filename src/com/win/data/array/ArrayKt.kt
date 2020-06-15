@@ -104,16 +104,18 @@ class ArrayKt<E> constructor(capacity: Int) {
             throw java.lang.IllegalArgumentException("remove fail. index must  >= 0 ||  < size")
         }
 
+        val e = get(index)
+
         for (i in index + 1 until size) {
             data[i - 1] = data[i]
         }
         size--
 
-        if (getCapacity() / size == 4) {
+        if (size > 0 && getCapacity() / size == 4) {
             reSize(getCapacity() / 2)
         }
 
-        return data[index]
+        return e
     }
 
 

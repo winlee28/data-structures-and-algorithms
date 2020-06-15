@@ -100,6 +100,14 @@ public class ArrayJava<E> {
 
     }
 
+    public E getLast() {
+        return get(size - 1);
+    }
+
+    public E getFirst() {
+        return get(0);
+    }
+
     public E removeFirst() {
         return remove(0);
     }
@@ -113,16 +121,17 @@ public class ArrayJava<E> {
             throw new IllegalArgumentException("remove fail.index  must >= 0 && index < size ");
         }
 
+        E e = get(index);
         for (int i = index + 1; i < size; i++) {
             data[i - 1] = data[i];
         }
 
         size--;
-        if (getCapacity() / size == 4) {
+        if (size > 0 && getCapacity() / size == 4) {
             reSize(getCapacity() / 2);
         }
 
-        return get(index);
+        return e;
     }
 
     public void printAll() {
