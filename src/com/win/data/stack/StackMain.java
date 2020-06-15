@@ -20,7 +20,7 @@ public class StackMain {
     private static char char_3 = '(';
     private static char char_3_3 = ')';
 
-    private static StackJava<Character> stackJava = new StackJava<>(new ArrayJava<Character>());
+    private static StackJava<Character> stackJava = new StackJava<>();
 
     public static void main(String[] args) {
 

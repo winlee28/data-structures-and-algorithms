@@ -6,8 +6,12 @@ public class StackJava<E> implements IStackJava<E> {
 
     private final ArrayJava<E> stack;
 
-    public StackJava(ArrayJava<E> stack) {
-        this.stack = stack;
+    public StackJava(int capacity) {
+        this.stack = new ArrayJava<>(capacity);
+    }
+
+    public StackJava() {
+        this(10);
     }
 
     @Override
