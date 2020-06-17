@@ -12,14 +12,13 @@ public class LinkMain {
         ListNode head = new ListNode(res);
         System.out.println(head.toString());
 
-        ListNode listNode = reverseString(head);
-        System.out.println(listNode.toString());
+//        ListNode listNode = reverseString(head);
+//        System.out.println(listNode.toString());
 
-//        ListNode listNode1 = removeElement2(head, 6);
-//        System.out.println(listNode1);
+        ListNode listNode1 = removeElement3(head, 6);
+        System.out.println(listNode1);
 
     }
-
 
     /**
      * 反转链表
@@ -44,6 +43,7 @@ public class LinkMain {
     }
 
     /**
+     * 删除链表中给定的全部某元素
      * 针对头结点进行特殊处理
      *
      * @param head
@@ -75,6 +75,7 @@ public class LinkMain {
 
 
     /**
+     * 删除链表中给定的全部某元素
      * 采用虚拟头节点方式，这样就每个节点都有head了 可以直接next
      *
      * @param head
@@ -96,5 +97,27 @@ public class LinkMain {
         }
 
         return dummyHead.next;
+    }
+
+    /**
+     * 删除链表中给定的全部某元素
+     * <p>
+     * 采用递归调用方式
+     *
+     * @param head
+     * @param val
+     * @return
+     */
+    public static ListNode removeElement3(ListNode head, int val) {
+
+        //1、处理最基础的情况，即什么时候退出递归
+        if (head == null) {
+            return head;
+        }
+
+        head.next = removeElement3(head.next, val);
+
+        return head.val == val ? head.next : head;
+
     }
 }
